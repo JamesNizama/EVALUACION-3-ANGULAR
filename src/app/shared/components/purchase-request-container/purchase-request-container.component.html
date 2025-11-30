@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="filter-block">
+    <app-purchase-request-filter
+      (searchChange)="onSearchChange($event)"
+    ></app-purchase-request-filter>
+  </div>
+
+  <div *ngIf="loading$ | async" class="loading">Cargando...</div>
+
+  <app-purchase-request-list
+    [requests]="filteredRequests$ | async"
+  ></app-purchase-request-list>
+</div>
